@@ -76,3 +76,37 @@ for domain in DOMAINS:
 with open("social-preview-live-report.json","w",encoding="utf-8") as f:
     json.dump(report,f,indent=2,ensure_ascii=False)
 print("OVERALL_SUCCESS",all(r["success"] for r in report["results"]))
+
+
+# Independent preview consumer (Microlink), crawler-facing header and freshness probe.
+import urllib.parse
+for domain in DOMAINS:
+    root="https://"+domain+"/"
+    image="https://"+domain+"/assets/social-card.png"
+    variants={}
+    for key,url in [
+        ("root_query",root+"?preview=20261110"),
+        ("image_query",image+"?v=20261110"),
+        ("robots",root+"robots.txt"),
+        ("www","https://www."+domain+"/")
+    ]:
+        v=request(url,USERS["facebook"])
+        body=v.pop("body",b"")
+        v["png_signature_ok"]=body.startswith(b"\x89PNG\r\n\x1a\n")
+        variants[key]=v
+    metaurl="https://api.microlink.io/?"+urllib.parse.urlencode({"url":root})
+    mic=request(metaurl,USERS["browser"])
+    micbody=mic.pop("body",b"")
+    if micbody:
+        try:
+            micj=json.loads(micbody.decode("utf-8"))
+            mic["api_status"]=micj.get("status")
+            obj=micj.get("data") or {}
+            mic["url"]=obj.get("url")
+            mic["title"]=obj.get("title")
+            mic["image"]=obj.get("image")
+            mic["logo"]=obj.get("logo")
+            mic["errors"]=micj.get("message")
+        except Exception as e:
+            mic["parse_error"]=str(e)
+    print("DIAG",json.dumps({"domain":domain,"variants":variants,"independent_preview":mic},ensure_ascii=False))
