@@ -1,0 +1,24 @@
+name: Audit live social previews (read only)
+on:
+  push:
+    branches:
+      - audit/social-preview-live-verification
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Live inspect social sharing (no DNS / site modifications)
+        run: python3 .github/scripts/audit-social-preview.py
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-social-preview-report
+          path: social-preview-live-report.json
+          if-no-files-found: warn
