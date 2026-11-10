@@ -2,8 +2,7 @@ name: Render social preview card
 on:
   push:
     branches:
-      - feat/light-superintelligence-landing-v1
-      - feat/si-light-identity-v1
+      - 'feat/**'
     paths:
       - assets/social-card.svg
       - .github/workflows/render-social-card.yml
