@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF7F1">
+  <meta name="description" content="EDyn.si — The Dynamics of Superintelligence. A distinctive domain identity for evolutionary intelligence, capability transitions, and the superintelligence frontier. Presented by Sohadot.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EDyn.si — The Dynamics of Superintelligence">
+  <meta property="og:description" content="An identity for the dynamics, transitions, and future architectures of superintelligence. A strategic domain asset presented by Sohadot.">
+  <meta property="og:url" content="https://edyn.si/">
+  <link rel="canonical" href="https://edyn.si/">
+  <title>EDyn.si — The Dynamics of Superintelligence</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #faf7f1; --white: #fffdf9; --ink: #273149; --muted: #667084;
+      --lilac: #8571c4; --lilac-light: #e8e0f9; --teal: #417b80;
+      --line: #dad9df; --warm: #eee9df; --gold: #c4a879;
+      --serif: "Iowan Old Style", "Baskerville", "Palatino Linotype", Georgia, serif;
+      --sans: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.58; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--lilac); outline-offset: 4px; }
+    .shell { width: min(1230px, calc(100% - 72px)); margin-inline: auto; }
+    .topline { display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    .topline span:last-child { text-align: right; }
+    .masthead { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; }
+    .brand { font-weight: 800; font-size: 28px; letter-spacing: -.075em; text-decoration: none; line-height: 1; }
+    .brand .ext { color: var(--lilac); }
+    .nav { display: flex; gap: clamp(16px, 3vw, 38px); align-items: center; font-size: 13px; font-weight: 600; }
+    .nav a { text-decoration: none; transition: color .2s ease; }
+    .nav a:hover { color: var(--lilac); }
+    .nav .acq { padding: 11px 16px; border: 1px solid #b7afcb; border-radius: 100px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); min-height: 670px; align-items: center; gap: clamp(16px, 4vw, 66px); padding: 74px 0 90px; }
+    .eyebrow { color: var(--teal); letter-spacing: .18em; text-transform: uppercase; font-size: 11px; font-weight: 800; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, blockquote { font-family: var(--serif); font-weight: 500; letter-spacing: -.047em; }
+    h1 { font-size: clamp(54px, 6.5vw, 102px); line-height: 1.01; margin: 27px 0 25px; }
+    h1 em { color: var(--lilac); font-style: italic; }
+    .lede { font-size: clamp(17px, 1.55vw, 21px); color: #596477; max-width: 530px; line-height: 1.55; }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 38px; }
+    .primary, .secondary { display: inline-flex; align-items: center; gap: 18px; font-size: 13px; font-weight: 800; text-decoration: none; }
+    .primary { padding: 16px 22px; background: #7763b4; color: #fff; border-radius: 4px; transition: transform .2s, background .2s; }
+    .primary:hover { transform: translateY(-2px); background: #64529d; }
+    .secondary { color: var(--teal); padding: 14px 0; }
+    .visual { position: relative; isolation: isolate; aspect-ratio: 1 / 1; min-width: 0; display: grid; place-items: center; }
+    .visual::before { content: ""; position: absolute; inset: 3%; border-radius: 50%; background: radial-gradient(circle at 50% 52%, rgba(232,224,249,.85) 0 20%, rgba(245,231,221,.5) 38%, rgba(255,253,249,0) 73%); z-index: -1; }
+    .visual svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .visual .orbit { fill: none; stroke: #d4cddd; stroke-width: 1; }
+    .visual .orbit.dashed { stroke-dasharray: 2 9; }
+    .visual .axis { stroke: #d7d5dd; stroke-width: 1; }
+    .visual .path { fill: none; stroke: #9581cd; stroke-width: 2; stroke-linecap: round; }
+    .visual .path.secondary { stroke: #8fbab1; stroke-width: 1.7; }
+    .visual .dot { fill: #fff; stroke: #8571c4; stroke-width: 2; }
+    .visual .dot.alt { stroke: #70a4a4; }
+    .visual .label { font: 700 10px var(--sans); letter-spacing: .15em; fill: #6a7186; }
+    .visual .core-label { font: 700 15px var(--sans); letter-spacing: .2em; fill: #536076; }
+    .visual .core-secondary { font: 500 11px var(--sans); fill: #6a7186; }
+    .diagram-caption { position: absolute; bottom: -6%; left: 6%; right: 6%; display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-top: 13px; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+    .index { display: flex; gap: 23px; align-items: baseline; border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: 12px; letter-spacing: .15em; text-transform: uppercase; }
+    .index strong { color: var(--lilac); }
+    .section-head { max-width: 840px; margin-bottom: 49px; }
+    h2 { font-size: clamp(42px, 5.3vw, 75px); line-height: 1.07; margin: 17px 0 25px; }
+    .section-intro { max-width: 700px; font-size: 18px; color: var(--muted); }
+    .thesis { padding: 110px 0; border-top: 1px solid var(--line); }
+    .thesis-grid { display: grid; grid-template-columns: .4fr 1fr; gap: 10vw; }
+    .margin-note { color: var(--teal); letter-spacing: .13em; font-size: 11px; text-transform: uppercase; font-weight: 800; padding-top: 15px; }
+    .thesis blockquote { padding: 0; margin: 0; font-size: clamp(33px, 4vw, 59px); line-height: 1.19; }
+    .thesis blockquote em { color: var(--lilac); font-style: italic; }
+    .thesis p { color: var(--muted); max-width: 650px; font-size: 17px; margin-top: 30px; }
+    .dynamics { background: #f0ece7; border-top: 1px solid #e0dcd5; border-bottom: 1px solid #e0dcd5; padding: 110px 0 115px; }
+    .lines { border-top: 1px solid #d5d0cc; }
+    .line { display: grid; grid-template-columns: 70px 1fr minmax(180px, .85fr); gap: 26px; align-items: baseline; border-bottom: 1px solid #d5d0cc; padding: 34px 0; }
+    .number { color: var(--lilac); font-size: 13px; font-weight: 800; letter-spacing: .1em; }
+    .line h3 { font-family: var(--serif); font-size: clamp(25px, 2.55vw, 38px); font-weight: 500; letter-spacing: -.035em; margin: 0; line-height: 1.15; }
+    .line p { margin: 0; color: #5d6677; max-width: 380px; font-size: 14px; }
+    .instrument { padding: 118px 0; }
+    .instrument-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 6vw; align-items: start; }
+    .phase-tabs { display: grid; margin-top: 40px; border-top: 1px solid var(--line); }
+    .phase-tab { display: flex; align-items: center; text-align: left; gap: 17px; background: transparent; border: none; border-bottom: 1px solid var(--line); padding: 18px 7px; color: #737c8b; font: 700 13px var(--sans); cursor: pointer; }
+    .phase-tab span { font-size: 10px; color: #8c82aa; width: 23px; }
+    .phase-tab[aria-pressed="true"] { color: #4e4386; background: rgba(232,224,249,.38); }
+    .phase-tab:hover { color: #4e4386; }
+    .instrument-stage { padding: clamp(30px, 4vw, 58px); background: var(--white); border: 1px solid #ddd9e0; min-height: 485px; display: flex; flex-direction: column; }
+    .stage-head { display: flex; justify-content: space-between; gap: 12px; font-size: 10px; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); font-weight: 700; }
+    .phase-display { display: flex; justify-content: center; align-items: center; min-height: 215px; position: relative; overflow: hidden; }
+    .phase-display svg { max-width: 330px; width: 100%; height: 195px; }
+    #trace { transition: d .35s ease, opacity .35s ease; }
+    #point-1, #point-2, #point-3, #point-4 { transition: cy .35s ease; }
+    .stage-name { font-family: var(--serif); font-size: clamp(27px, 3vw, 39px); letter-spacing: -.03em; line-height: 1.15; margin: 5px 0 12px; }
+    .stage-desc { color: var(--muted); max-width: 420px; min-height: 4.5em; margin-bottom: 20px; }
+    .stage-note { border-top: 1px solid var(--line); padding-top: 17px; font-size: 11px; color: #818b9a; }
+    .possibility { background: #e9eff0; padding: 107px 0; }
+    .markets { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #cad4d6; }
+    .market { padding: 31px 33px 0 0; }
+    .market + .market { border-left: 1px solid #cad4d6; padding-left: 32px; }
+    .market .count { font-size: 12px; font-weight: 800; color: var(--teal); }
+    .market h3 { font-family: var(--serif); font-size: 30px; line-height: 1.16; font-weight: 500; margin: 19px 0; letter-spacing: -.04em; }
+    .market p { color: #536876; font-size: 14px; }
+    .acquire-section { padding: 110px 0 85px; }
+    .acquire-panel { display: grid; grid-template-columns: 1.2fr .8fr; gap: 55px; padding: clamp(40px, 6vw, 82px); background: #e9e3f2; border: 1px solid #d6cce6; }
+    .acquire-panel h2 { margin-top: 17px; font-size: clamp(43px, 5vw, 72px); }
+    .acquire-panel p { color: #636a81; max-width: 590px; font-size: 17px; }
+    .acquire-aside { border-left: 1px solid #c7bcd7; padding-left: 45px; display: flex; flex-direction: column; justify-content: center; gap: 15px; }
+    .small { text-transform: uppercase; letter-spacing: .16em; font-size: 11px; color: #7b709a; font-weight: 800; }
+    .asset-name { font-family: var(--serif); font-size: 42px; letter-spacing: -.04em; }
+    .acquire-aside .primary { align-self: flex-start; }
+    footer { border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: start; gap: 24px; padding: 30px 0 52px; color: var(--muted); font-size: 12px; }
+    footer a { color: var(--teal); }
+    footer p { max-width: 670px; }
+    @media (max-width: 900px) {
+      .shell { width: min(100% - 40px, 750px); }
+      .hero { grid-template-columns: 1fr; padding-top: 50px; }
+      .visual { width: min(100%, 560px); margin: 12px auto 30px; }
+      .thesis-grid { grid-template-columns: 1fr; gap: 15px; }
+      .instrument-layout, .acquire-panel { grid-template-columns: 1fr; }
+      .acquire-aside { border-left: none; padding: 25px 0 0; border-top: 1px solid #c7bcd7; }
+    }
+    @media (max-width: 620px) {
+      .topline { font-size: 9px; }
+      .masthead { align-items: flex-start; }
+      .nav { gap: 12px; flex-wrap: wrap; justify-content: flex-end; font-size: 11px; }
+      .nav a:first-child { display: none; }
+      .hero { min-height: 0; padding: 35px 0 75px; }
+      h1 { font-size: clamp(51px, 12vw, 78px); }
+      .thesis, .dynamics, .instrument, .possibility, .acquire-section { padding-block: 70px; }
+      .line { grid-template-columns: 40px 1fr; gap: 10px; }
+      .line p { grid-column: 2; }
+      .markets { grid-template-columns: 1fr; }
+      .market, .market + .market { border-left: none; border-bottom: 1px solid #cad4d6; padding: 26px 0; }
+      .instrument-stage { min-height: 465px; }
+      .diagram-caption { font-size: 8px; bottom: -7%; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topline"><span>Superintelligence / A domain identity</span><span>Presented by Sohadot</span></div>
+    <header class="masthead">
+      <a class="brand" href="#top" aria-label="EDyn.si home">EDyn<span class="ext">.si</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#thesis">The thesis</a>
+        <a href="#dynamics">Dynamics</a>
+        <a href="#instrument">Explore</a>
+        <a href="#acquire" class="acq">Acquisition ↗</a>
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">Evolutionary dynamics × superintelligence</div>
+          <h1 id="hero-title">The dynamics of <em>superintelligence.</em></h1>
+          <p class="lede">Intelligence is not only a capability. It is a changing system of learning, adaptation, evaluation, and possibility. EDyn.si gives that frontier a distinct digital identity.</p>
+          <div class="cta-row">
+            <a class="primary" href="#acquire">Explore acquisition <span aria-hidden="true">↗</span></a>
+            <a class="secondary" href="#thesis">Understand the thesis <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="visual" role="img" aria-label="Conceptual diagram of evolving intelligence: capability, feedback, evaluation, and an outer superintelligence frontier connected around a central intelligence dynamics system.">
+          <svg viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <circle cx="280" cy="280" r="240" class="orbit dashed"/>
+            <circle cx="280" cy="280" r="198" class="orbit"/>
+            <circle cx="280" cy="280" r="148" class="orbit dashed"/>
+            <circle cx="280" cy="280" r="96" class="orbit"/>
+            <line x1="280" y1="30" x2="280" y2="530" class="axis"/>
+            <line x1="30" y1="280" x2="530" y2="280" class="axis"/>
+            <path d="M80 285 C112 140 229 61 343 96 S519 224 474 339" class="path"/>
+            <path d="M112 366 C166 461 332 496 420 408 S438 223 351 180" class="path secondary"/>
+            <circle cx="80" cy="285" r="7" class="dot"/>
+            <circle cx="343" cy="96" r="8" class="dot"/>
+            <circle cx="474" cy="339" r="8" class="dot alt"/>
+            <circle cx="112" cy="366" r="7" class="dot alt"/>
+            <circle cx="351" cy="180" r="6" class="dot"/>
+            <circle cx="280" cy="280" r="79" fill="#fffdf9" stroke="#cfc3e4" stroke-width="1.5"/>
+            <text x="280" y="268" text-anchor="middle" class="core-label">E / DYN / SI</text>
+            <text x="280" y="291" text-anchor="middle" class="core-secondary">system of change</text>
+            <text x="280" y="310" text-anchor="middle" class="core-secondary">conceptual model</text>
+            <text x="85" y="267" text-anchor="middle" class="label">CAPABILITY</text>
+            <text x="349" y="77" text-anchor="middle" class="label">FEEDBACK</text>
+            <text x="461" y="361" text-anchor="middle" class="label">EVALUATION</text>
+            <text x="122" y="391" text-anchor="middle" class="label">ADAPTATION</text>
+            <text x="280" y="545" text-anchor="middle" class="label">SUPERINTELLIGENCE FRONTIER</text>
+          </svg>
+          <div class="diagram-caption"><span>Conceptual system / 001</span><span>Not a live performance model</span></div>
+        </div>
+      </section>
+      <div class="index"><strong>01 /</strong> A name for a new frontier <span aria-hidden="true">—</span> An identity rather than a product claim</div>
+      <section class="thesis" id="thesis" aria-labelledby="thesis-title">
+        <div class="thesis-grid">
+          <div class="margin-note">The central thesis / EDyn.si</div>
+          <div>
+            <blockquote id="thesis-title">The most consequential question may not be <em>how intelligent</em> a system is today, but how its intelligence can <em>change.</em></blockquote>
+            <p>EDyn connects evolutionary dynamics with the study of artificial superintelligence. It offers a concise conceptual home for questions of capability transition, iterative improvement, evaluation, and the design of systems that could exceed present-day intelligence boundaries.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <section class="dynamics" id="dynamics" aria-labelledby="dynamics-title">
+    <div class="shell">
+      <div class="section-head">
+        <div class="eyebrow">An intelligible commercial thesis</div>
+        <h2 id="dynamics-title">Three dynamics.<br>One frontier.</h2>
+        <p class="section-intro">A meaningful identity needs more than futuristic language. These research and engineering questions connect the superintelligence frontier to work institutions can undertake today.</p>
+      </div>
+      <div class="lines">
+        <div class="line"><span class="number">01</span><h3>Capability transitions</h3><p>How new competencies arise, interact, generalize, and become measurable across successive systems.</p></div>
+        <div class="line"><span class="number">02</span><h3>Improvement feedback</h3><p>How evaluation, tools, research processes, and feedback influence future capabilities and their limits.</p></div>
+        <div class="line"><span class="number">03</span><h3>Systemic consequences</h3><p>How changes in intelligence may reshape reliability, control, infrastructure, and institutional decisions.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="instrument" id="instrument" aria-labelledby="instrument-title">
+    <div class="shell instrument-layout">
+      <div>
+        <div class="eyebrow">A conceptual instrument</div>
+        <h2 id="instrument-title">Explore the transitions.</h2>
+        <p class="section-intro">A navigable thought model, not a forecast: select a lens to examine different questions along the path toward increasingly capable systems.</p>
+        <div class="phase-tabs" role="group" aria-label="Choose an intelligence dynamics lens">
+          <button type="button" class="phase-tab" data-phase="0" aria-pressed="true"><span>01</span> Research foundations</button>
+          <button type="button" class="phase-tab" data-phase="1" aria-pressed="false"><span>02</span> Capability growth</button>
+          <button type="button" class="phase-tab" data-phase="2" aria-pressed="false"><span>03</span> Iterative improvement</button>
+          <button type="button" class="phase-tab" data-phase="3" aria-pressed="false"><span>04</span> Superintelligence frontier</button>
+        </div>
+      </div>
+      <div class="instrument-stage" aria-live="polite">
+        <div class="stage-head"><span>EDyn / Transition field</span><span id="stage-index">Lens 01 / 04</span></div>
+        <div class="phase-display" aria-hidden="true">
+          <svg viewBox="0 0 330 195" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 160 H320 M10 120 H320 M10 80 H320 M10 40 H320" fill="none" stroke="#ece7ee"/>
+            <path d="M20 8 V175 M93 8 V175 M166 8 V175 M239 8 V175 M312 8 V175" fill="none" stroke="#f0ecf1"/>
+            <path id="trace" d="M20 145 C70 142 90 130 115 124 S192 111 232 97 S289 84 312 80" fill="none" stroke="#8571c4" stroke-width="3" stroke-linecap="round"/>
+            <circle id="point-1" cx="20" cy="145" r="5" fill="#fff" stroke="#8571c4" stroke-width="2"/>
+            <circle id="point-2" cx="115" cy="124" r="5" fill="#fff" stroke="#8571c4" stroke-width="2"/>
+            <circle id="point-3" cx="232" cy="97" r="5" fill="#fff" stroke="#8571c4" stroke-width="2"/>
+            <circle id="point-4" cx="312" cy="80" r="7" fill="#e8e0f9" stroke="#8571c4" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="stage-name" id="stage-name">Research foundations</h3>
+        <p class="stage-desc" id="stage-desc">Define what is being measured: intelligence, generalization, agency, reliability, and the boundaries of existing evaluation methods.</p>
+        <div class="stage-note">Illustrative conceptual lenses; no empirical projection or capability claim is implied.</div>
+      </div>
+    </div>
+  </section>
+  <section class="possibility" aria-labelledby="possibility-title">
+    <div class="shell">
+      <div class="section-head">
+        <div class="eyebrow">Commercial relevance</div>
+        <h2 id="possibility-title">An identity with room to build.</h2>
+        <p class="section-intro">EDyn.si could serve a venture, research initiative, or technical program concerned with the dynamics of intelligence. These are possible positioning directions, not claims of existing EDyn products.</p>
+      </div>
+      <div class="markets">
+        <div class="market"><span class="count">A / RESEARCH</span><h3>Intelligence evolution research</h3><p>Comparative studies of capabilities, emerging competencies, and the conditions under which intelligent systems change.</p></div>
+        <div class="market"><span class="count">B / EVALUATION</span><h3>Capability assurance</h3><p>Tools and methodologies for observing, testing, documenting, and responsibly assessing increasingly capable systems.</p></div>
+        <div class="market"><span class="count">C / ARCHITECTURE</span><h3>Future systems design</h3><p>Frameworks for reliability, feedback, coordination, and governance as advanced intelligence becomes more consequential.</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="shell">
+    <section class="acquire-section" id="acquire" aria-labelledby="acquire-title">
+      <div class="acquire-panel">
+        <div>
+          <div class="eyebrow">Strategic acquisition</div>
+          <h2 id="acquire-title">Give the frontier a name.</h2>
+          <p>EDyn.si is offered as a domain asset with a distinctive conceptual positioning around the dynamics of superintelligence. Inquire about acquiring the domain and developing your own independent identity.</p>
+        </div>
+        <div class="acquire-aside">
+          <span class="small">Available for acquisition inquiry</span>
+          <div class="asset-name">EDyn.si</div>
+          <a class="primary" href="mailto:agent@sohadot.com?subject=EDyn.si%20%E2%80%94%20Strategic%20Acquisition%20Inquiry">Request details <span aria-hidden="true">↗</span></a>
+          <span style="font-size:13px;color:#706985">agent@sohadot.com</span>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div><strong>EDyn.si</strong><br>A strategic domain identity presented by <a href="https://sohadot.com/" rel="noopener">Sohadot</a>.</div>
+      <p>This page presents a conceptual positioning and domain acquisition opportunity. It does not represent a deployed superintelligent system, a functioning technology product, or a performance guarantee.</p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      "use strict";
+      var phases = [
+        {name:"Research foundations",desc:"Define what is being measured: intelligence, generalization, agency, reliability, and the boundaries of existing evaluation methods.", path:"M20 145 C70 142 90 130 115 124 S192 111 232 97 S289 84 312 80",ys:[145,124,97,80]},
+        {name:"Capability growth",desc:"Examine improvements across different tasks and environments while distinguishing benchmark gains from durable, transferable capabilities.",path:"M20 155 C70 153 89 137 115 125 S195 109 232 69 S283 61 312 45",ys:[155,125,69,45]},
+        {name:"Iterative improvement",desc:"Study how evaluation and feedback loops might help systems improve research processes, tools, and their own development methods.",path:"M20 160 C64 151 80 148 115 126 S170 150 232 88 S280 71 312 23",ys:[160,126,88,23]},
+        {name:"Superintelligence frontier",desc:"Investigate hypothetical systems beyond human-level capability: what evidence, control methods, and institutions would be required to assess them responsibly?",path:"M20 163 C79 160 83 153 115 147 S198 119 232 81 S291 34 312 14",ys:[163,147,81,14]}
+      ];
+      var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-phase]"));
+      var name = document.getElementById("stage-name");
+      var desc = document.getElementById("stage-desc");
+      var label = document.getElementById("stage-index");
+      var trace = document.getElementById("trace");
+      var dots = [1,2,3,4].map(function(n){return document.getElementById("point-" + n);});
+      buttons.forEach(function(button){
+        button.addEventListener("click", function(){
+          var index = Number(button.getAttribute("data-phase"));
+          var phase = phases[index];
+          if (!phase) return;
+          buttons.forEach(function(b){b.setAttribute("aria-pressed",String(b===button));});
+          name.textContent=phase.name;
+          desc.textContent=phase.desc;
+          label.textContent="Lens 0" + (index+1) + " / 04";
+          trace.setAttribute("d",phase.path);
+          dots.forEach(function(dot,i){dot.setAttribute("cy",String(phase.ys[i]));});
+        });
+      });
+    }());
+  </script>
+</body>
+</html>
